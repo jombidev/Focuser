@@ -29,44 +29,78 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FocuserMain));
-            this.listProc = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
+            listProc = new ListBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            btnRefresh = new Button();
+            btnSelect = new Button();
+            SuspendLayout();
             // 
             // listProc
             // 
-            this.listProc.FormattingEnabled = true;
-            this.listProc.ItemHeight = 12;
-            this.listProc.Location = new System.Drawing.Point(12, 12);
-            this.listProc.Name = "listProc";
-            this.listProc.Size = new System.Drawing.Size(436, 256);
-            this.listProc.TabIndex = 0;
+            listProc.FormattingEnabled = true;
+            listProc.Location = new Point(12, 15);
+            listProc.Margin = new Padding(3, 4, 3, 4);
+            listProc.Name = "listProc";
+            listProc.Size = new Size(436, 319);
+            listProc.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(12, 341);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(293, 47);
+            btnRefresh.TabIndex = 1;
+            btnRefresh.Text = "새로고침";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // btnSelect
+            // 
+            btnSelect.Location = new Point(311, 341);
+            btnSelect.Name = "btnSelect";
+            btnSelect.Size = new Size(137, 47);
+            btnSelect.TabIndex = 2;
+            btnSelect.Text = "선택";
+            btnSelect.UseVisualStyleBackColor = true;
+            btnSelect.Click += btnSelect_Click;
             // 
             // FocuserMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 320);
-            this.ControlBox = false;
-            this.Controls.Add(this.listProc);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FocuserMain";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Focuser";
-            this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FocuserMain_FormClosing);
-            this.Load += new System.EventHandler(this.FocuserMain_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FocuserMain_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FocuserMain_MouseMove);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(460, 400);
+            ControlBox = false;
+            Controls.Add(btnSelect);
+            Controls.Add(btnRefresh);
+            Controls.Add(listProc);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FocuserMain";
+            SizeGripStyle = SizeGripStyle.Hide;
+            Text = "Focuser";
+            TopMost = true;
+            FormClosing += FocuserMain_FormClosing;
+            Load += FocuserMain_Load;
+            MouseDown += FocuserMain_MouseDown;
+            MouseMove += FocuserMain_MouseMove;
+            ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Timer timer1;
 
         #endregion
 
         private System.Windows.Forms.ListBox listProc;
+        private Button btnRefresh;
+        private Button btnSelect;
     }
 }
