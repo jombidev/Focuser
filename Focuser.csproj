@@ -8,4 +8,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Update="FocuserAlert.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FocuserHome.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

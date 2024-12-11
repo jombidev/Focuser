@@ -7,13 +7,17 @@ using Focuser.Extern;
 
 namespace Focuser
 {
-    public partial class FocuserMain : Form
+    public partial class FocuserStart : Form
     {
         private readonly List<ProcessInfo> CurrentDataSource = [];
 
-        public FocuserMain()
+        public FocuserStart()
         {
             InitializeComponent();
+
+            when.Format = DateTimePickerFormat.Custom;
+
+            when.CustomFormat = "yyyy-MM-dd HH:mm:ss";
         }
 
         private Point _startPoint = new(0, 0);
@@ -74,7 +78,10 @@ namespace Focuser
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
+            if (listProc.SelectedItem == null) return;
+            Form form = new FocuserMain(listProc.SelectedItem! as ProcessInfo, when.Value);
+            form.Show();
+            Hide();
         }
     }
 }

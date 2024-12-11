@@ -24,8 +24,17 @@ public static class User32Ext
     
     [DllImport("user32.dll", SetLastError = true, EntryPoint = "EnumWindows")]
     public static extern int GetWindowInformation(EnumWindowsCallback callPtr, int lParam);
+
+    [DllImport("user32.dll", EntryPoint = "GetForegroundWindow")]
+    public static extern IntPtr GetFocusedHwnd();
     
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
     
+    [DllImport("user32.dll")]
+    public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+
     public static string GetWindowTitle(IntPtr hWnd)
     {
         var length = GetWindowTextLength(hWnd) + 1;

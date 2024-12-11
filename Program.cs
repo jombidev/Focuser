@@ -26,7 +26,7 @@ namespace Focuser
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FocuserMain());
+            Application.Run(new FocuserStart());
         }
     }
 }
